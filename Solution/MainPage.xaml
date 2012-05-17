@@ -44,11 +44,11 @@
             <controls:PanoramaItem Header="payout">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Start City" Margin="5" FontSize="30"/>
-                    <ComboBox ItemsSource="{Binding Cities}" SelectedItem="{Binding StartCity}" Height="50" Margin="5"/>
+                    <ComboBox ItemsSource="{Binding Cities}" DisplayMemberPath="Name" SelectedItem="{Binding StartCity}" Height="50" Margin="5"/>
                     <TextBlock Text="End City" Margin="5" FontSize="30"/>
-                    <ComboBox ItemsSource="{Binding Cities}" SelectedItem="{Binding EndCity}"/>
-                    
-                    <TextBlock Text="{Binding Payout}" />
+                    <ComboBox ItemsSource="{Binding Cities}" DisplayMemberPath="Name" SelectedItem="{Binding EndCity}"/>
+                    <TextBlock Text="Payout" FontSize="30" Margin="5"/>
+                    <TextBlock Text="{Binding Payout, StringFormat=C0}" />
                 </StackPanel>
             </controls:PanoramaItem>
 

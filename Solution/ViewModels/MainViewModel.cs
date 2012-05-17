@@ -51,7 +51,7 @@ namespace RailBaron
         #endregion
 
         #region RegionDiceRoll Property
-        private string _regionDiceRoll = "Roll: ";
+        private string _regionDiceRoll = "None";
         
         public string RegionDiceRoll
         {
@@ -85,7 +85,7 @@ namespace RailBaron
         #endregion
 
         #region CityDiceRoll Property
-        private string _cityDiceRoll;
+        private string _cityDiceRoll = "None";
 
         public string CityDiceRoll
         {
@@ -102,7 +102,7 @@ namespace RailBaron
         #endregion
 
         #region RolledCity Property
-        private string _rolledCity;
+        private string _rolledCity = "None";
 
         public string RolledCity
         {
