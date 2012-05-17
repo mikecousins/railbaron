@@ -20,19 +20,34 @@
             <controls:PanoramaItem Header="destination">
                 <StackPanel Orientation="Vertical">
                     <Button Content="Roll For Region" x:Name="RollRegionButton" IsEnabled="{Binding RollRegionButtonEnabled}" Click="RollRegionButton_Click" />
-                    <TextBlock Text="{Binding RegionDiceRoll}" />
-                    <TextBlock Text="{Binding RolledRegion}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Roll: " FontSize="30"/>
+                        <TextBlock Text="{Binding RegionDiceRoll}" FontSize="30"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Region: " FontSize="30"/>
+                        <TextBlock Text="{Binding RolledRegion}" FontSize="30" />
+                    </StackPanel>
                     <Button Content="Roll For City" x:Name="RollCityButton" IsEnabled="{Binding RollCityButtonEnabled}" Click="RollCityButton_Click" />
-                    <TextBlock Text="{Binding CityDiceRoll}" />
-                    <TextBlock Text="{Binding RolledCity}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Roll: " FontSize="30"/>
+                        <TextBlock Text="{Binding CityDiceRoll}" FontSize="30" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="City: " FontSize="30"/>
+                        <TextBlock Text="{Binding RolledCity}" FontSize="30" />
+                    </StackPanel>
                     <Button Content="Reset" x:Name="ResetButton" Click="ResetButton_Click" />
                 </StackPanel>
             </controls:PanoramaItem>
 
             <controls:PanoramaItem Header="payout">
                 <StackPanel Orientation="Vertical">
-                    <ComboBox ItemsSource="{Binding Cities}" SelectedItem="{Binding StartCity}"/>
+                    <TextBlock Text="Start City" Margin="5" FontSize="30"/>
+                    <ComboBox ItemsSource="{Binding Cities}" SelectedItem="{Binding StartCity}" Height="50" Margin="5"/>
+                    <TextBlock Text="End City" Margin="5" FontSize="30"/>
                     <ComboBox ItemsSource="{Binding Cities}" SelectedItem="{Binding EndCity}"/>
+                    
                     <TextBlock Text="{Binding Payout}" />
                 </StackPanel>
             </controls:PanoramaItem>

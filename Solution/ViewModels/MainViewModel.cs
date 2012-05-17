@@ -14,7 +14,6 @@ namespace RailBaron
         #region Fields
         private List<Trip> _trips;
         Random random = new Random();
-        private string _lastRolledRegion;
         #endregion
 
         #region RollRegionButtonEnabled Property
@@ -202,15 +201,25 @@ namespace RailBaron
             // add our trips
             _trips = new List<Trip>();
             _trips.Add(new Trip() { StartCity = boston, EndCity = losAngeles, Payout = 21000 });
+            _trips.Add(new Trip() { StartCity = boston, EndCity = sanFrancisco, Payout = 20000 });
         }
 
         /// <summary>
-        /// Rolls a die and returns the result
+        /// Rolls a die and returns true if it's odd
         /// </summary>
         /// <returns></returns>
-        private int Roll()
+        private bool RollOddEven()
         {
-            return random.Next(5) + 1;
+            return random.Next(2) == 1;
+        }
+
+        /// <summary>
+        /// Rolls two dice and returns the sum
+        /// </summary>
+        /// <returns></returns>
+        private int RollNumeric()
+        {
+            return random.Next(6) + random.Next(6) + 2;
         }
 
         /// <summary>
@@ -219,9 +228,60 @@ namespace RailBaron
         /// <param name="oddEven"></param>
         /// <param name="numeric"></param>
         /// <returns></returns>
-        private string GetRegion(int oddEven, int numeric)
+        private string GetRegion(bool oddEven, int numeric)
         {
-            return "Calgary";
+            if (numeric == 1)
+            {
+                return "Northwest";
+            }
+            else if (numeric == 2)
+            {
+                return "Northeast";
+            }
+            else if (numeric == 3)
+            {
+                return "Plains";
+            }
+            else if (numeric == 4)
+            {
+                return "Southwest";
+            }
+            else if (numeric == 5)
+            {
+                return "Southeast";
+            }
+            else
+            {
+                return "North Central";
+            }
+        }
+
+        private string GetCity(bool oddEven, int numeric, string region)
+        {
+            if (region == "Northwest")
+            {
+                return "Seattle";
+            }
+            else if (region == "Northeast")
+            {
+                return "Boston";
+            }
+            else if (region == "Southwest")
+            {
+                return "Los Angeles";
+            }
+            else if (region == "Southeast")
+            {
+                return "Tampa";
+            }
+            else if (region == "Plains")
+            {
+                return "Nashville";
+            }
+            else
+            {
+                return "Des Moines";
+            }
         }
 
         /// <summary>
@@ -230,12 +290,11 @@ namespace RailBaron
         public void RollRegionButton_Click()
         {
             RollRegionButtonEnabled = false;
-            
-            int oddEvenRoll = Roll();
-            int numericRoll = Roll();
-            RegionDiceRoll = "Roll: " + oddEvenRoll.ToString() + " " + numericRoll.ToString();
-            _rolledRegion = GetRegion(oddEvenRoll, numericRoll);
-            RolledRegion = "Region: " + _rolledRegion;
+
+            bool oddEvenRoll = RollOddEven();
+            int numericRoll = RollNumeric();
+            RegionDiceRoll = oddEvenRoll.ToString() + " " + numericRoll.ToString();
+            RolledRegion = GetRegion(oddEvenRoll, numericRoll);
             RollCityButtonEnabled = true;
         }
 
@@ -245,8 +304,10 @@ namespace RailBaron
         public void RollCityButton_Click()
         {
             RollCityButtonEnabled = false;
-            CityDiceRoll = "";
-            RolledCity = "";
+            bool oddEvenRoll = RollOddEven();
+            int numericRoll = RollNumeric();
+            CityDiceRoll = oddEvenRoll.ToString() + " " + numericRoll.ToString();
+            RolledCity = GetCity(oddEvenRoll, numericRoll, RolledRegion);
         }
 
         /// <summary>
