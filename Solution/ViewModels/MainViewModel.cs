@@ -225,52 +225,141 @@ namespace RailBaron
         /// <summary>
         /// Gets a region given a dice roll
         /// </summary>
-        /// <param name="oddEven"></param>
+        /// <param name="isOdd"></param>
         /// <param name="numeric"></param>
         /// <returns></returns>
-        private string GetRegion(bool oddEven, int numeric)
+        private string GetRegion(bool isOdd, int numeric)
         {
-            if (numeric == 1)
+            if (isOdd)
             {
-                return "Northwest";
-            }
-            else if (numeric == 2)
-            {
-                return "Northeast";
-            }
-            else if (numeric == 3)
-            {
-                return "Plains";
-            }
-            else if (numeric == 4)
-            {
-                return "Southwest";
-            }
-            else if (numeric == 5)
-            {
-                return "Southeast";
+                if (numeric == 2)
+                {
+                    return "Plains";
+                }
+                else if (numeric == 3 || numeric == 4 || numeric == 5)
+                {
+                    return "South East";
+                }
+                else if (numeric == 6 || numeric == 7)
+                {
+                    return "North Central";
+                }
+                else // (numeric == 8 || numeric == 9 || numeric == 10 || numeric == 11 || numeric == 12)
+                {
+                    return "North East";
+                }
             }
             else
             {
-                return "North Central";
+                if (numeric == 2 || numeric == 6 || numeric == 7)
+                {
+                    return "South West";
+                }
+                else if (numeric == 3 || numeric == 4 || numeric == 5)
+                {
+                    return "South Central";
+                }
+                else if (numeric == 6 || numeric == 7)
+                {
+                    return "South West";
+                }
+                else if (numeric == 8 || numeric == 11)
+                {
+                    return "Plains";
+                }
+                else //(numeric == 9 || numeric == 10 || numeric == 12)
+                {
+                    return "North West";
+                }
             }
         }
 
-        private string GetCity(bool oddEven, int numeric, string region)
+        private string GetCity(bool isOdd, int numeric, string region)
         {
-            if (region == "Northwest")
+            if (region == "North West")
             {
-                return "Seattle";
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 12)
+                    {
+                        return "Spokane";
+                    }
+                    else if (numeric == 4 || numeric == 5 || numeric == 6 || numeric == 7)
+                    {
+                        return "Seattle";
+                    }
+                    else if (numeric == 8)
+                    {
+                        return "Rapid City";
+                    }
+                    else if (numeric == 9)
+                    {
+                        return "Casper";
+                    }
+                    else //if (numeric == 10 || numeric == 11)
+                    {
+                        return "Billings";
+                    }
+                }
+                else
+                {
+                    if (numeric == 2)
+                    {
+                        return "Spokane";
+                    }
+                    else if (numeric == 3 || numeric == 4 || numeric == 5)
+                    {
+                        return "Salt Lake City";
+                    }
+                    else if (numeric == 6 || numeric == 7 || numeric == 8 || numeric == 12)
+                    {
+                        return "Portland";
+                    }
+                    else if (numeric == 9)
+                    {
+                        return "Pocatello";
+                    }
+                    else //if (numeric == 10 || numeric == 11)
+                    {
+                        return "Butte";
+                    }
+                }
             }
-            else if (region == "Northeast")
+            else if (region == "North East")
             {
-                return "Boston";
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 4 || numeric == 10 || numeric == 11 || numeric == 12)
+                    {
+                        return "New York";
+                    }
+                    else if (numeric == 5)
+                    {
+                        return "Albany";
+                    }
+                    else if (numeric == 6 || numeric == 8)
+                    {
+                        return "Boston";
+                    }
+                    else if (numeric == 7)
+                    {
+                        return "Buffalo";
+                    }
+                    else //if (numeric == 9)
+                    {
+                        return "Portland";
+                    }
+                }
+                else
+                {
+                    return "Boston";
+                }
             }
-            else if (region == "Southwest")
+            else if (region == "South West")
             {
                 return "Los Angeles";
             }
-            else if (region == "Southeast")
+            else if (region == "South East")
             {
                 return "Tampa";
             }
@@ -293,7 +382,15 @@ namespace RailBaron
 
             bool oddEvenRoll = RollOddEven();
             int numericRoll = RollNumeric();
-            RegionDiceRoll = oddEvenRoll.ToString() + " " + numericRoll.ToString();
+            if (oddEvenRoll)
+            {
+                RegionDiceRoll = "Odd ";
+            }
+            else
+            {
+                RegionDiceRoll = "Even ";
+            }
+            RegionDiceRoll += numericRoll.ToString();
             RolledRegion = GetRegion(oddEvenRoll, numericRoll);
             RollCityButtonEnabled = true;
         }
@@ -306,7 +403,15 @@ namespace RailBaron
             RollCityButtonEnabled = false;
             bool oddEvenRoll = RollOddEven();
             int numericRoll = RollNumeric();
-            CityDiceRoll = oddEvenRoll.ToString() + " " + numericRoll.ToString();
+            if (oddEvenRoll)
+            {
+                CityDiceRoll = "Odd ";
+            }
+            else
+            {
+                CityDiceRoll = "Even ";
+            }
+            CityDiceRoll += numericRoll.ToString();
             RolledCity = GetCity(oddEvenRoll, numericRoll, RolledRegion);
         }
 
