@@ -352,19 +352,161 @@ namespace RailBaron
                 }
                 else
                 {
-                    return "Boston";
+                    if (numeric == 2 || numeric == 12)
+                    {
+                        return "New York";
+                    }
+                    else if (numeric == 3 || numeric == 7)
+                    {
+                        return "Washington";
+                    }
+                    else if (numeric == 4 || numeric == 5)
+                    {
+                        return "Pittsburgh";
+                    }
+                    else if (numeric == 6 || numeric == 8)
+                    {
+                        return "Philadelphia";
+                    }
+                    else //if (numeric == 9 || numeric == 10 || numeric == 11)
+                    {
+                        return "Baltimore";
+                    }
                 }
             }
             else if (region == "South West")
             {
-                return "Los Angeles";
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 5)
+                    {
+                        return "San Diego";
+                    }
+                    else if (numeric == 4)
+                    {
+                        return "Reno";
+                    }
+                    else if (numeric == 6)
+                    {
+                        return "Sacramento";
+                    }
+                    else if (numeric == 7)
+                    {
+                        return "Las Vegas";
+                    }
+                    else if (numeric == 8 || numeric == 11 || numeric == 12)
+                    {
+                        return "Phoenix";
+                    }
+                    else if (numeric == 9)
+                    {
+                        return "El Paso";
+                    }
+                    else //if (numeric == 10)
+                    {
+                        return "Tucumcari";
+                    }
+                }
+                else
+                {
+                    if (numeric == 2 || numeric == 6 || numeric == 7 || numeric == 8)
+                    {
+                        return "Los Angeles";
+                    }
+                    else if (numeric == 3 || numeric == 4 || numeric == 5)
+                    {
+                        return "Oakland";
+                    }
+                    else //if (numeric == 9 || numeric == 10 || numeric == 11 || numeric == 12)
+                    {
+                        return "San Francisco";
+                    }
+                }
             }
             else if (region == "South East")
             {
-                return "Tampa";
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3)
+                    {
+                        return "Charlotte";
+                    }
+                    else if (numeric == 4)
+                    {
+                        return "Chattanooga";
+                    }
+                    else if (numeric == 5 || numeric == 6 || numeric == 7)
+                    {
+                        return "Atlanta";
+                    }
+                    else if (numeric == 8)
+                    {
+                        return "Richmond";
+                    }
+                    else if (numeric == 9 || numeric == 11)
+                    {
+                        return "Knoxville";
+                    }
+                    else //if (numeric == 10 || numeric == 12)
+                    {
+                        return "Mobile";
+                    }
+                }
+                else
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 4 || numeric == 12)
+                    {
+                        return "Norfolk";
+                    }
+                    else if (numeric == 5)
+                    {
+                        return "Charleston";
+                    }
+                    else if (numeric == 6 || numeric == 8)
+                    {
+                        return "Miami";
+                    }
+                    else if (numeric == 7)
+                    {
+                        return "Jacksonville";
+                    }
+                    else if (numeric == 9 || numeric == 10)
+                    {
+                        return "Tampa";
+                    }
+                    else //if (numeric == 11)
+                    {
+                        return "Mobile";
+                    }
+                }
             }
             else if (region == "Plains")
             {
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 7 || numeric == 8 || numeric == 9)
+                    {
+                        return "Kansas City";
+                    }
+                    else if (numeric == 4 || numeric == 5 || numeric == 6)
+                    {
+                        return "Denver";
+                    }
+                    else if (numeric == 10 || numeric == 11)
+                    {
+                        return "Pueblo";
+                    }
+                    else if (numeric == 12)
+                    {
+                        return "Oklahoma City";
+                    }
+                }
+                else
+                {
+                    if (numeric == 2)
+                    {
+                    }
+                }
                 return "Nashville";
             }
             else
