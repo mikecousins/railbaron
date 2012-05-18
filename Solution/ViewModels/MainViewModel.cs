@@ -496,22 +496,140 @@ namespace RailBaron
                     {
                         return "Pueblo";
                     }
-                    else if (numeric == 12)
+                    else //if (numeric == 12)
                     {
                         return "Oklahoma City";
                     }
                 }
                 else
                 {
-                    if (numeric == 2)
+                    if (numeric == 2 || numeric == 7)
                     {
+                        return "Oklahoma City";
+                    }
+                    else if (numeric == 3 || numeric == 5)
+                    {
+                        return "St. Paul";
+                    }
+                    else if (numeric == 4 || numeric == 6)
+                    {
+                        return "Minneapolis";
+                    }
+                    else if (numeric == 8)
+                    {
+                        return "Des Moines";
+                    }
+                    else if (numeric == 9 || numeric == 10)
+                    {
+                        return "Omaha";
+                    }
+                    else //if (numeric == 11 || numeric == 12)
+                    {
+                        return "Fargo";
                     }
                 }
-                return "Nashville";
             }
-            else
+            else if (region == "North Central")
             {
-                return "Des Moines";
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 4 || numeric == 5)
+                    {
+                        return "Cleveland";
+                    }
+                    else if (numeric == 6 || numeric == 7)
+                    {
+                        return "Detroit";
+                    }
+                    else if (numeric == 8)
+                    {
+                        return "Indianapolis";
+                    }
+                    else if (numeric == 9 || numeric == 10 || numeric == 12)
+                    {
+                        return "Milwaukee";
+                    }
+                    else //if (numeric == 11)
+                    {
+                        return "Chicago";
+                    }
+                }
+                else
+                {
+                    if (numeric == 2 || numeric == 4 || numeric == 5)
+                    {
+                        return "Cincinnati";
+                    }
+                    else if (numeric == 3 || numeric == 7 || numeric == 8 || numeric == 12)
+                    {
+                        return "Chicago";
+                    }
+                    else if (numeric == 6)
+                    {
+                        return "Columbus";
+                    }
+                    else //if (numeric == 9 || numeric == 10 || numeric == 11)
+                    {
+                        return "St. Louis";
+                    }
+                }
+            }
+            else // if (region == "South Central")
+            {
+                if (isOdd)
+                {
+                    if (numeric == 2 || numeric == 3 || numeric == 4 || numeric == 12)
+                    {
+                        return "Memphis";
+                    }
+                    else if (numeric == 5)
+                    {
+                        return "Little Rock";
+                    }
+                    else if (numeric == 6)
+                    {
+                        return "New Orleans";
+                    }
+                    else if (numeric == 7)
+                    {
+                        return "Birmingham";
+                    }
+                    else if (numeric == 8 || numeric == 11)
+                    {
+                        return "Louisville";
+                    }
+                    else //if (numeric == 9 || numeric == 10)
+                    {
+                        return "Nashville";
+                    }
+                }
+                else
+                {
+                    if (numeric == 2 || numeric == 3)
+                    {
+                        return "Shreveport";
+                    }
+                    else if (numeric == 4 || numeric == 6)
+                    {
+                        return "Dallas";
+                    }
+                    else if (numeric == 5)
+                    {
+                        return "New Orleans";
+                    }
+                    else if (numeric == 7)
+                    {
+                        return "San Antonio";
+                    }
+                    else if (numeric == 8 || numeric == 9)
+                    {
+                        return "Houston";
+                    }
+                    else //if (numeric == 10 || numeric == 11 || numeric == 12)
+                    {
+                        return "Fort Worth";
+                    }
+                }
             }
         }
 
