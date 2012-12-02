@@ -1,4 +1,4 @@
-﻿namespace RailBaron.Models
+﻿namespace RailBaron.Shared.Models
 {
     public class Trip
     {

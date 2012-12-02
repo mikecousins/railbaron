@@ -1,6 +1,6 @@
 ﻿using Microsoft.Phone.Controls;
 
-namespace RailBaron
+namespace RailBaron.Phone
 {
     public partial class MainPage : PhoneApplicationPage
     {

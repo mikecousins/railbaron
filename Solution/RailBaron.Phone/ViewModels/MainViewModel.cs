@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using RailBaron.Models;
+using RailBaron.Shared.Models;
 
 
-namespace RailBaron
+namespace RailBaron.Phone.ViewModels
 {
     /// <summary>
     /// Our main view model for the app
