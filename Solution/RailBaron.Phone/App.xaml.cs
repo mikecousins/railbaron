@@ -14,7 +14,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using RailBaron.Phone.ViewModels;
 
-namespace RailBaron
+namespace RailBaron.Phone
 {
     public partial class App : Application
     {
